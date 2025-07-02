@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin View</title></head>
+<body>
+    <h2>Admin - Test Submissions</h2>
+    <a href="/admin/logout">Logout</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Score</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Report</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td><a href="/report/{{ row[0] }}">View Report</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

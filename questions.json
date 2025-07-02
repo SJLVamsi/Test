@@ -1,0 +1,485 @@
+
+{
+  "questions": [
+    {
+      "id": 1,
+      "section": 1,
+      "question": "What is the capital of France?",
+      "options": {
+        "a": "Berlin",
+        "b": "Madrid",
+        "c": "Paris",
+        "d": "Rome"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 2,
+      "section": 1,
+      "question": "What is 2 + 2?",
+      "options": {
+        "a": "3",
+        "b": "4",
+        "c": "5",
+        "d": "6"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 3,
+      "section": 1,
+      "question": "What is the largest planet in our solar system?",
+      "options": {
+        "a": "Earth",
+        "b": "Jupiter",
+        "c": "Mars",
+        "d": "Saturn"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 4,
+      "section": 1,
+      "question": "Who wrote 'To Kill a Mockingbird'?",
+      "options": {
+        "a": "Harper Lee",
+        "b": "J.K. Rowling",
+        "c": "Ernest Hemingway",
+        "d": "Mark Twain"
+      },
+      "answer": "a"
+    },
+    {
+      "id": 5,
+      "section": 1,
+      "question": "What is the chemical symbol for water?",
+      "options": {
+        "a": "O2",
+        "b": "H2O",
+        "c": "CO2",
+        "d": "NaCl"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 6,
+      "section": 1,
+      "question": "How many continents are there?",
+      "options": {
+        "a": "5",
+        "b": "6",
+        "c": "7",
+        "d": "8"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 7,
+      "section": 1,
+      "question": "Who painted the Mona Lisa?",
+      "options": {
+        "a": "Vincent van Gogh",
+        "b": "Pablo Picasso",
+        "c": "Leonardo da Vinci",
+        "d": "Claude Monet"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 8,
+      "section": 1,
+      "question": "What is the tallest mammal?",
+      "options": {
+        "a": "Elephant",
+        "b": "Giraffe",
+        "c": "Horse",
+        "d": "Whale"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 9,
+      "section": 1,
+      "question": "Which planet is known as the Red Planet?",
+      "options": {
+        "a": "Mars",
+        "b": "Venus",
+        "c": "Jupiter",
+        "d": "Mercury"
+      },
+      "answer": "a"
+    },
+    {
+      "id": 10,
+      "section": 1,
+      "question": "What is the main ingredient in guacamole?",
+      "options": {
+        "a": "Tomato",
+        "b": "Avocado",
+        "c": "Onion",
+        "d": "Lime"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 11,
+      "section": 1,
+      "question": "How many sides does a triangle have?",
+      "options": {
+        "a": "3",
+        "b": "4",
+        "c": "5",
+        "d": "6"
+      },
+      "answer": "a"
+    },
+    {
+      "id": 12,
+      "section": 1,
+      "question": "What is the currency of Japan?",
+      "options": {
+        "a": "Won",
+        "b": "Yuan",
+        "c": "Yen",
+        "d": "Dollar"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 13,
+      "section": 1,
+      "question": "Who discovered penicillin?",
+      "options": {
+        "a": "Marie Curie",
+        "b": "Alexander Fleming",
+        "c": "Isaac Newton",
+        "d": "Albert Einstein"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 14,
+      "section": 1,
+      "question": "What is the smallest country in the world?",
+      "options": {
+        "a": "Monaco",
+        "b": "Vatican City",
+        "c": "San Marino",
+        "d": "Liechtenstein"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 15,
+      "section": 2,
+      "question": "What is the square root of 64?",
+      "options": {
+        "a": "6",
+        "b": "7",
+        "c": "8",
+        "d": "9"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 16,
+      "section": 2,
+      "question": "What is 15 * 3?",
+      "options": {
+        "a": "45",
+        "b": "50",
+        "c": "55",
+        "d": "60"
+      },
+      "answer": "a"
+    },
+    {
+      "id": 17,
+      "section": 2,
+      "question": "What is the value of Pi to two decimal places?",
+      "options": {
+        "a": "3.12",
+        "b": "3.14",
+        "c": "3.16",
+        "d": "3.18"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 18,
+      "section": 2,
+      "question": "How many degrees are in a right angle?",
+      "options": {
+        "a": "45",
+        "b": "90",
+        "c": "180",
+        "d": "360"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 19,
+      "section": 2,
+      "question": "What is 100 / 4?",
+      "options": {
+        "a": "20",
+        "b": "25",
+        "c": "30",
+        "d": "35"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 20,
+      "section": 2,
+      "question": "What is the next prime number after 7?",
+      "options": {
+        "a": "9",
+        "b": "10",
+        "c": "11",
+        "d": "12"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 21,
+      "section": 2,
+      "question": "What is 7 * 8?",
+      "options": {
+        "a": "54",
+        "b": "56",
+        "c": "58",
+        "d": "60"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 22,
+      "section": 2,
+      "question": "What is the perimeter of a square with a side length of 5?",
+      "options": {
+        "a": "15",
+        "b": "20",
+        "c": "25",
+        "d": "30"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 23,
+      "section": 2,
+      "question": "What is 3 to the power of 3?",
+      "options": {
+        "a": "9",
+        "b": "18",
+        "c": "27",
+        "d": "30"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 24,
+      "section": 2,
+      "question": "What is the area of a rectangle with a length of 6 and a width of 4?",
+      "options": {
+        "a": "20",
+        "b": "24",
+        "c": "28",
+        "d": "32"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 25,
+      "section": 2,
+      "question": "What is 50% of 100?",
+      "options": {
+        "a": "25",
+        "b": "50",
+        "c": "75",
+        "d": "100"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 26,
+      "section": 2,
+      "question": "How many millimeters are in a centimeter?",
+      "options": {
+        "a": "10",
+        "b": "100",
+        "c": "1000",
+        "d": "1"
+      },
+      "answer": "a"
+    },
+    {
+      "id": 27,
+      "section": 2,
+      "question": "What is the formula for the area of a circle?",
+      "options": {
+        "a": "2 * pi * r",
+        "b": "pi * r^2",
+        "c": "pi * d",
+        "d": "2 * pi * d"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 28,
+      "section": 3,
+      "question": "Which is the largest ocean on Earth?",
+      "options": {
+        "a": "Atlantic Ocean",
+        "b": "Indian Ocean",
+        "c": "Arctic Ocean",
+        "d": "Pacific Ocean"
+      },
+      "answer": "d"
+    },
+    {
+      "id": 29,
+      "section": 3,
+      "question": "What is the capital of Australia?",
+      "options": {
+        "a": "Sydney",
+        "b": "Melbourne",
+        "c": "Canberra",
+        "d": "Perth"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 30,
+      "section": 3,
+      "question": "Who was the first man to walk on the moon?",
+      "options": {
+        "a": "Buzz Aldrin",
+        "b": "Neil Armstrong",
+        "c": "Michael Collins",
+        "d": "Yuri Gagarin"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 31,
+      "section": 3,
+      "question": "What is the longest river in the world?",
+      "options": {
+        "a": "Amazon River",
+        "b": "Nile River",
+        "c": "Yangtze River",
+        "d": "Mississippi River"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 32,
+      "section": 3,
+      "question": "Which country is known as the Land of the Rising Sun?",
+      "options": {
+        "a": "China",
+        "b": "Japan",
+        "c": "South Korea",
+        "d": "Thailand"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 33,
+      "section": 3,
+      "question": "What is the hardest natural substance on Earth?",
+      "options": {
+        "a": "Gold",
+        "b": "Iron",
+        "c": "Diamond",
+        "d": "Quartz"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 34,
+      "section": 3,
+      "question": "How many bones are in the adult human body?",
+      "options": {
+        "a": "206",
+        "b": "208",
+        "c": "210",
+        "d": "212"
+      },
+      "answer": "a"
+    },
+    {
+      "id": 35,
+      "section": 3,
+      "question": "What is the name of the galaxy our solar system is in?",
+      "options": {
+        "a": "Andromeda",
+        "b": "Triangulum",
+        "c": "Milky Way",
+        "d": "Whirlpool"
+      },
+      "answer": "c"
+    },
+    {
+      "id": 36,
+      "section": 3,
+      "question": "Which is the only mammal capable of sustained flight?",
+      "options": {
+        "a": "Flying squirrel",
+        "b": "Bat",
+        "c": "Bird",
+        "d": "Butterfly"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 37,
+      "section": 3,
+      "question": "What is the largest desert in the world?",
+      "options": {
+        "a": "Sahara Desert",
+        "b": "Arabian Desert",
+        "c": "Gobi Desert",
+        "d": "Antarctic Polar Desert"
+      },
+      "answer": "d"
+    },
+    {
+      "id": 38,
+      "section": 3,
+      "question": "Who wrote the play 'Romeo and Juliet'?",
+      "options": {
+        "a": "Charles Dickens",
+        "b": "William Shakespeare",
+        "c": "George Orwell",
+        "d": "Jane Austen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": 39,
+      "section": 3,
+      "question": "What is the chemical formula for salt?",
+      "options": {
+        "a": "NaCl",
+        "b": "KCl",
+        "c": "MgCl2",
+        "d": "CaCl2"
+      },
+      "answer": "a"
+    },
+    {
+      "id": 40,
+      "section": 3,
+      "question": "What is the most spoken language in the world?",
+      "options": {
+        "a": "Spanish",
+        "b": "English",
+        "c": "Mandarin Chinese",
+        "d": "Hindi"
+      },
+      "answer": "c"
+    }
+  ]
+}

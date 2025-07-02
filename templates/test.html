@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .timer { font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 20px; }
+        .section { margin-bottom: 30px; }
+        .question { margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <div class="timer" id="timer">03:00:00</div>
+    <h2>Online Test</h2>
+    <form id="test-form" method="post">
+        {% set section_number = 0 %}
+        {% for question in questions %}
+            {% if question.section != section_number %}
+                {% if section_number != 0 %}
+                    </div>
+                {% endif %}
+                {% set section_number = question.section %}
+                <div class="section">
+                    <h3>Section {{ section_number }}</h3>
+            {% endif %}
+            <div class="question">
+                <p>{{ question.id }}. {{ question.question }}</p>
+                <input type="hidden" name="q{{ question.id }}_time" id="q{{ question.id }}_time" value="0">
+                {% for option, text in question.options.items() %}
+                    <input type="radio" name="q{{ question.id }}" value="{{ option }}" onchange="startQuestionTimer({{ question.id }})"> {{ text }}<br>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        </div>
+        <input type="submit" value="Submit Test">
+    </form>
+
+    <script>
+        let questionTimers = {};
+        let questionIntervals = {};
+
+        function startQuestionTimer(questionId) {
+            if (!questionTimers.hasOwnProperty(questionId)) {
+                questionTimers[questionId] = 0;
+                questionIntervals[questionId] = setInterval(function() {
+                    questionTimers[questionId]++;
+                    document.getElementById(`q${questionId}_time`).value = questionTimers[questionId];
+                }, 1000);
+            }
+        }
+
+        function startTimer(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            let interval = setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    document.getElementById("test-form").submit();
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let threeHours = 60 * 60 * 3;
+            let display = document.querySelector('#timer');
+            startTimer(threeHours, display);
+        };
+    </script>
+</body>
+</html>
