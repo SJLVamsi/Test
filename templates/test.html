@@ -385,11 +385,11 @@
                 
                 <!-- Hidden radio inputs -->
                 {% for option, text in question.options.items() %}
+                <input type="radio" name="q{{ question.id }}" value="{{ option }}" id="q{{ question.id }}_{{ option }}" style="display: none;">
                 {% endfor %}
             </div>
             {% endfor %}
-            {% else %}
-            {% if questions %}
+
             <div class="navigation-buttons">
                 <button type="button" class="nav-btn" id="prev-btn" onclick="previousQuestion()">
                     <i class="fas fa-arrow-left me-2"></i>Previous
@@ -407,16 +407,12 @@
                     <i class="fas fa-paper-plane me-2"></i>Submit Test
                 </button>
             </div>
-            {% endif %}div>
-                
-                <button type="button" class="nav-btn" id="next-btn" onclick="nextQuestion()">
-                    Next<i class="fas fa-arrow-right ms-2"></i>
-                </button>
-                
-                <button type="submit" class="submit-btn hidden" id="submit-btn">
-                    <i class="fas fa-paper-plane me-2"></i>Submit Test
-                </button>
+            {% else %}
+            <div class="alert alert-warning text-center mt-4">
+                <h4><i class="fas fa-exclamation-triangle me-2"></i>No Questions Available</h4>
+                <p>There are currently no questions available for this test. Please contact the administrator.</p>
             </div>
+            {% endif %}
         </form>
     </div>
 
