@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Document - TestPlatform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar-custom {
+            background: linear-gradient(45deg, #dc3545, #fd7e14);
+            padding: 1rem 0;
+        }
+        .upload-container {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .upload-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .upload-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .upload-icon {
+            background: linear-gradient(45deg, #ffc107, #fd7e14);
+            color: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+        }
+        .form-control, .form-select {
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            padding: 0.8rem 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #ffc107;
+            box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+        }
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        .file-input {
+            position: absolute;
+            left: -9999px;
+        }
+        .file-input-label {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border: 2px dashed #dee2e6;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+        .file-input-label:hover {
+            border-color: #ffc107;
+            background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+        }
+        .file-selected {
+            border-color: #28a745 !important;
+            background: linear-gradient(45deg, #d4edda, #c3e6cb) !important;
+        }
+        .btn-submit {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border: none;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+            color: white;
+        }
+        .btn-back {
+            background: linear-gradient(45deg, #6c757d, #5a6268);
+            border: none;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+            color: white;
+        }
+        .logout-btn {
+            background: linear-gradient(45deg, #dc3545, #fd7e14);
+            border: none;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        .file-info {
+            background: linear-gradient(45deg, rgba(255, 193, 7, 0.1), rgba(253, 126, 20, 0.1));
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+        .progress-wrapper {
+            margin-top: 1rem;
+            display: none;
+        }
+        .progress {
+            height: 10px;
+            border-radius: 10px;
+            background: #e9ecef;
+        }
+        .progress-bar {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-custom">
+        <div class="container">
+            <a href="/admin/documents" class="navbar-brand text-white fw-bold">
+                <i class="fas fa-arrow-left me-2"></i>Back to Documents
+            </a>
+            <a href="/admin/logout" class="logout-btn">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </a>
+        </div>
+    </nav>
+
+    <div class="container upload-container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="upload-card">
+                    <div class="upload-header">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h2 class="fw-bold text-dark">Upload Document</h2>
+                        <p class="text-muted">Upload a PDF document to your library</p>
+                    </div>
+
+                    <form id="uploadForm" action="/admin/documents/upload" method="post" enctype="multipart/form-data">
+                        <div class="mb-4">
+                            <label for="title" class="form-label fw-bold">Document Title *</label>
+                            <input type="text" class="form-control" id="title" name="title" required 
+                                   placeholder="Enter document title...">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="description" class="form-label fw-bold">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" 
+                                     placeholder="Brief description of the document (optional)..."></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Select PDF File *</label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="fileInput" name="file" class="file-input" 
+                                       accept=".pdf" required onchange="handleFileSelect(this)">
+                                <label for="fileInput" class="file-input-label" id="fileLabel">
+                                    <i class="fas fa-file-pdf fa-3x text-muted mb-3"></i>
+                                    <h5 class="text-muted">Click to select PDF file</h5>
+                                    <p class="text-muted mb-0">or drag and drop your PDF here</p>
+                                    <small class="text-muted">Maximum file size: 10MB</small>
+                                </label>
+                            </div>
+                            <div id="fileInfo" class="file-info">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-file-pdf text-danger me-2"></i>
+                                    <div>
+                                        <strong id="fileName"></strong><br>
+                                        <small class="text-muted" id="fileSize"></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrapper" id="progressWrapper">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Uploading...</span>
+                                <span class="text-muted" id="progressText">0%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 0%" id="progressBar"></div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-3 mt-4">
+                            <button type="submit" class="btn btn-submit" id="submitBtn">
+                                <i class="fas fa-upload me-2"></i>Upload Document
+                            </button>
+                            <a href="/admin/documents" class="btn btn-back">
+                                <i class="fas fa-times me-2"></i>Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleFileSelect(input) {
+            const file = input.files[0];
+            const fileLabel = document.getElementById('fileLabel');
+            const fileInfo = document.getElementById('fileInfo');
+            const fileName = document.getElementById('fileName');
+            const fileSize = document.getElementById('fileSize');
+
+            if (file) {
+                if (file.type === 'application/pdf') {
+                    fileLabel.classList.add('file-selected');
+                    fileInfo.style.display = 'block';
+                    fileName.textContent = file.name;
+                    fileSize.textContent = `Size: ${(file.size / 1024 / 1024).toFixed(2)} MB`;
+                    
+                    fileLabel.innerHTML = `
+                        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                        <h5 class="text-success">PDF Selected Successfully</h5>
+                        <p class="text-muted mb-0">Click to change file</p>
+                    `;
+                } else {
+                    alert('Please select a PDF file only.');
+                    input.value = '';
+                    resetFileInput();
+                }
+            } else {
+                resetFileInput();
+            }
+        }
+
+        function resetFileInput() {
+            const fileLabel = document.getElementById('fileLabel');
+            const fileInfo = document.getElementById('fileInfo');
+            
+            fileLabel.classList.remove('file-selected');
+            fileInfo.style.display = 'none';
+            fileLabel.innerHTML = `
+                <i class="fas fa-file-pdf fa-3x text-muted mb-3"></i>
+                <h5 class="text-muted">Click to select PDF file</h5>
+                <p class="text-muted mb-0">or drag and drop your PDF here</p>
+                <small class="text-muted">Maximum file size: 10MB</small>
+            `;
+        }
+
+        // Handle form submission with progress
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            const submitBtn = document.getElementById('submitBtn');
+            const progressWrapper = document.getElementById('progressWrapper');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Uploading...';
+            progressWrapper.style.display = 'block';
+            
+            // Simulate progress (in real implementation, you'd use XMLHttpRequest for actual progress)
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 95) progress = 95;
+                
+                document.getElementById('progressBar').style.width = progress + '%';
+                document.getElementById('progressText').textContent = Math.round(progress) + '%';
+            }, 200);
+            
+            // Clean up interval after form submission
+            setTimeout(() => {
+                clearInterval(interval);
+                document.getElementById('progressBar').style.width = '100%';
+                document.getElementById('progressText').textContent = '100%';
+            }, 2000);
+        });
+
+        // Drag and drop functionality
+        const fileLabel = document.getElementById('fileLabel');
+        const fileInput = document.getElementById('fileInput');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileLabel.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileLabel.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileLabel.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            fileLabel.style.borderColor = '#ffc107';
+            fileLabel.style.background = 'linear-gradient(45deg, #fff3cd, #ffeaa7)';
+        }
+
+        function unhighlight(e) {
+            if (!fileInput.files[0]) {
+                fileLabel.style.borderColor = '#dee2e6';
+                fileLabel.style.background = 'linear-gradient(45deg, #f8f9fa, #e9ecef)';
+            }
+        }
+
+        fileLabel.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length > 0) {
+                fileInput.files = files;
+                handleFileSelect(fileInput);
+            }
+        }
+    </script>
+</body>
+</html>

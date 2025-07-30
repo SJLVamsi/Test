@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question - TestPlatform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            width: 100%;
+        }
+        .form-control, .form-select {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            transition: border-color 0.3s ease;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .btn-secondary {
+            background: #6c757d;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #ffd700;
+        }
+        .form-icon {
+            font-size: 4rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        .option-group {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .option-letter {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .correct-answer-selector {
+            background: #e8f5e8;
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="/admin/questions" class="back-link">
+        <i class="fas fa-arrow-left me-2"></i>Back to Questions
+    </a>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="form-container">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-plus-circle form-icon"></i>
+                        <h2 class="fw-bold text-dark">Add New Question</h2>
+                        <p class="text-muted">Create a new question for the test</p>
+                    </div>
+                    
+                    <form method="POST">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="section" class="form-label fw-semibold">
+                                    <i class="fas fa-list me-2"></i>Section
+                                </label>
+                                <select class="form-select" id="section" name="section" required>
+                                    <option value="">Choose Section</option>
+                                    <option value="1">Section 1</option>
+                                    <option value="2">Section 2</option>
+                                    <option value="3">Section 3</option>
+                                    <option value="4">Section 4</option>
+                                    <option value="5">Section 5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="correct_answer" class="form-label fw-semibold">
+                                    <i class="fas fa-check-circle me-2"></i>Correct Answer
+                                </label>
+                                <select class="form-select" id="correct_answer" name="correct_answer" required>
+                                    <option value="">Choose Correct Answer</option>
+                                    <option value="a">Option A</option>
+                                    <option value="b">Option B</option>
+                                    <option value="c">Option C</option>
+                                    <option value="d">Option D</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="question" class="form-label fw-semibold">
+                                <i class="fas fa-question me-2"></i>Question Text
+                            </label>
+                            <textarea class="form-control" id="question" name="question" rows="3" required 
+                                      placeholder="Enter your question here..."></textarea>
+                        </div>
+                        
+                        <div class="option-group">
+                            <h6 class="fw-bold mb-3">
+                                <i class="fas fa-list-ul me-2"></i>Answer Options
+                            </h6>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="option-letter">A</span>
+                                        <div class="flex-grow-1">
+                                            <label for="option_a" class="form-label fw-semibold">Option A</label>
+                                            <input type="text" class="form-control" id="option_a" name="option_a" 
+                                                   required placeholder="Enter option A">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="option-letter">B</span>
+                                        <div class="flex-grow-1">
+                                            <label for="option_b" class="form-label fw-semibold">Option B</label>
+                                            <input type="text" class="form-control" id="option_b" name="option_b" 
+                                                   required placeholder="Enter option B">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="option-letter">C</span>
+                                        <div class="flex-grow-1">
+                                            <label for="option_c" class="form-label fw-semibold">Option C</label>
+                                            <input type="text" class="form-control" id="option_c" name="option_c" 
+                                                   required placeholder="Enter option C">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="option-letter">D</span>
+                                        <div class="flex-grow-1">
+                                            <label for="option_d" class="form-label fw-semibold">Option D</label>
+                                            <input type="text" class="form-control" id="option_d" name="option_d" 
+                                                   required placeholder="Enter option D">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="/admin/questions" class="btn btn-secondary">
+                                <i class="fas fa-times me-2"></i>Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Save Question
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Highlight correct answer option as user selects it
+        document.getElementById('correct_answer').addEventListener('change', function() {
+            // Remove previous highlights
+            document.querySelectorAll('.option-letter').forEach(el => {
+                el.style.background = '#667eea';
+            });
+            
+            // Highlight selected correct answer
+            const selected = this.value;
+            if (selected) {
+                const optionLetter = document.querySelector(`.option-letter:nth-child(${selected.charCodeAt(0) - 96})`);
+                if (optionLetter) {
+                    optionLetter.style.background = '#28a745';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
